@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 and School Children with Disabilities</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-bar">
+            <div class="logo-container">
+                <img src="covisense.jpg" alt="Covi Sense" class="logo-img">
+                <h1 class="logo">Covi Sense</h1>
+            </div>
+            <nav>
+              
+            </nav>
+        </div>
+        <div class="hero-text">
+            <h2>COVID-19 Prediction Using SARIMAMAX</h2>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="content-container">
+            <div class="tab-navigation">
+                <ul>
+                    <li><a href="#" class="active">OVERVIEW</a></li>
+                  
+                </ul>
+            </div>
+            
+            <div class="overview-section">
+                <img src="covisense.jpg" alt="Covi Sense" class="overview-img">
+                <div class="text">
+                    <h3>OVERVIEW</h3>
+                    <p>Since the outbreak of the COVID-19 pandemic, forecasting future case trends has become crucial for governments, healthcare providers, and policy planners. This project focuses on predicting the trajectory of COVID-19 cases using SARIMAX (Seasonal AutoRegressive Integrated Moving Average with eXogenous variables), a time series modeling technique that incorporates both seasonal trends and external influencing factors.
+
+                        By analyzing historical COVID-19 data along with relevant external variables such as mobility patterns, vaccination rates, and government interventions, our model provides accurate and insightful predictions. These forecasts can help authorities make timely decisions related to healthcare resource allocation, lockdown policies, and public safety measures.</p>
+                    <p>Our interactive web platform visualizes the predicted trends and allows users to explore future scenarios based on current data. This project demonstrates the power of data-driven forecasting in managing public health crises and preparing for potential future outbreaks.</p>
+                </div>
+            </div>
+
+            <div class="prediction-tool">
+                <h3>COVID-19 PREDICTION TOOL</h3>
+                <p>Use our machine learning model to predict COVID-19 prevalence for planning educational accommodations:</p>
+                <form action="/" method="POST" class="prediction-form">
+                    <div class="form-group">
+                        <label for="year">Enter Year (2025-2040):</label>
+                        <input type="number" id="year" name="year" min="2025" max="2040" required placeholder="Enter year">
+                        <button type="submit" class="predict-btn">Predict</button>
+                    </div>
+                </form>
+                <div id="result" class="result-container">
+                    <div class="result-box">
+                        <h4>Prediction Result</h4>
+                        <p class="prediction-result" id="prediction-text">Enter a year above to see the prediction</p>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .carousel-container {
+                    position: relative;
+                    width: 100%;
+                    max-width: 700px;
+                    margin: auto;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                }
+                
+                .carousel-slides {
+                    display: flex;
+                    width: 400%;
+                    transition: transform 0.5s ease-in-out;
+                }
+                
+                .carousel-slide {
+                    width: 100%;
+                    flex-shrink: 0;
+                }
+                
+                .carousel-slide img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+                
+                .carousel-buttons {
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                
+                .carousel-buttons button {
+                    border: none;
+                    background-color: #ccc;
+                    padding: 6px 10px;
+                    margin: 5px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+                
+                .carousel-buttons button.active {
+                    background-color: #555;
+                }
+                </style>
+                
+                <div class="carousel-container">
+                    <div class="carousel-slides" id="slides">
+                        <div class="carousel-slide"><img src="total_cases_01.png" alt="Finding 1"></div>
+                        <div class="carousel-slide"><img src="06.jpg" alt="Finding 2"></div>
+                        <div class="carousel-slide"><img src="03.png" alt="Finding 3"></div>
+                        <div class="carousel-slide"><img src="05.png" alt="Finding 4"></div>
+                        <div class="carousel-slide"><img src="07.jpg" alt="Finding 2"></div>
+                    </div>
+                </div>
+                <style>
+                    .carousel-container {
+                        width: 100%;
+                        max-width: 800px; /* Adjust as needed */
+                        height: 400px; /* Adjust based on desired height */
+                        overflow: hidden;
+                        position: relative;
+                        margin: auto;
+                    }
+                    
+                    .carousel-slides {
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        transition: transform 0.5s ease-in-out;
+                    }
+                    
+                    .carousel-slide {
+                        min-width: 100%;
+                        height: 100%;
+                        box-sizing: border-box;
+                    }
+                    
+                    .carousel-slide img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain; /* or use cover, depending on your need */
+                        display: block;
+                    }
+                    </style>
+                     
+
+
+
+
+
+
+                <div class="carousel-buttons">
+                    <button onclick="moveSlide(0)" class="active"></button>
+                    <button onclick="moveSlide(1)"></button>
+                    <button onclick="moveSlide(2)"></button>
+                    <button onclick="moveSlide(3)"></button>
+                </div>
+                
+                <script>
+                let currentIndex = 0;
+                const slides = document.getElementById('slides');
+                const buttons = document.querySelectorAll('.carousel-buttons button');
+                
+                function moveSlide(index) {
+                    currentIndex = index;
+                    slides.style.transform = `translateX(-${index * 100}%)`;
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    buttons[index].classList.add('active');
+                }
+                
+                // Auto play every 5 seconds
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % 4;
+                    moveSlide(currentIndex);
+                }, 5000);
+                </script>
+                
+                </div>
+            </div>
+        </section>
+
+        <section class="our-team">
+            <h3>OUR TEAM</h3>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="Team_mem01.jpg" alt="Mrunal Yewatkar">
+                    <h4>Mrunal Yewatkar</h4>
+                    <p>Data Scientist specialized in time series analysis and predictive modeling. Responsible for developing the SARIMAX model used in our COVID-19 prediction tool and statistical analysis of Covid-19 data.</p>
+                </div>
+                <div class="team-member">
+                    <img src="Team_02.jpg" alt="Tanishq Shivarkar">
+                    <h4>Tanishq Shivarkar</h4>
+                    <p>Web Developer and Educational Researcher focused on accessibility in digital learning environments. Contributed to the frontend development and Finding Dataset.</p>
+                </div>
+            </div>
+        
+    </main>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
